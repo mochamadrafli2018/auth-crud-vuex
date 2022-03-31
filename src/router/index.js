@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+   mode: 'history',
    routes: [
       {
          path: '/',
@@ -30,6 +31,8 @@ const router = new VueRouter({
          name: 'register',
          component: () => import('../pages/register.vue')
       },
+      // otherwise redirect to home
+      { path: '*', redirect: '/' }
    ]
 })
 
