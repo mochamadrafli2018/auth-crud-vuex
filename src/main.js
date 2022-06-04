@@ -1,13 +1,18 @@
 import Vue from 'vue'
 import App from './App.vue'
-import vuetify from './plugins/vuetify'
-import router from './router'
-import './index.css';
+import { router } from './router/router'
+import { store } from './_store';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.config.productionTip = false
 
+// setup fake backend
+import { configureFakeBackend } from './_fake-backend';
+configureFakeBackend();
+
 new Vue({
   router,
-  vuetify,
+  store,
   render: h => h(App)
 }).$mount('#app')
